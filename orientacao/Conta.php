@@ -1,13 +1,20 @@
 <?php
-class Conta
+class Conta //nome das classes sejam substantivo
 {
-    public string $cpfTitular;
-    public string $nomeTitular;
-    public float $saldo = 0;
+    private string $cpfTitular; //propriedades são  privadas
+    private string $nomeTitular;
+    private float $saldo = 0;
 
-    public function sacar(float $valorASacar): void
+    public function __construct(string $cpfTitular, string $nomeTitular) // serve para inicializar a instância: Conta
     {
-        if ($valorASacar > $this->saldo) {
+        $this->cpfTitular = $cpfTitular;
+        $this->nomeTitular = $nomeTitular;
+        $this->saldo = 0;
+    }
+
+    public function sacar(float $valorASacar): void //métodos são públicos
+    {
+        if ($valorASacar > $this->saldo) { //nome dos métodos sejam verbos
             echo "saldo indisponível";
             return;
         }
@@ -32,5 +39,20 @@ class Conta
         $this->sacar ($valorATransferir);
         $contaDestino->depositar($valorATransferir);
     
+    }
+    public function recuperarSaldo():float
+    {
+        return $this->saldo;
+    }
+    
+          
+    public function recuperarNomeTitular():string
+    {
+        return $this->nomeTitular;
+    }
+
+    public function recuperarCpfTitular():string
+    {
+        return $this->cpfTitular;
     }
 }
