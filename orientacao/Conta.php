@@ -1,15 +1,21 @@
 <?php
 class Conta //nome das classes sejam substantivo
 {
-    private string $cpfTitular; //propriedades são  privadas
-    private string $nomeTitular;
-    private float $saldo = 0;
-
-    public function __construct(string $cpfTitular, string $nomeTitular) // serve para inicializar a instância: Conta
+    private string $titular; //propriedades são  privadas
+    private float $saldo;
+    private static $numeroDeContas = 0;
+    
+    public function __construct(Titular $titular) // inicializa a instância: Conta
     {
-        $this->cpfTitular = $cpfTitular;
-        $this->nomeTitular = $nomeTitular;
+        $this->titular = $titular;
         $this->saldo = 0;
+        
+        self::$numeroDeContas ++;
+    }
+
+    public function __destruct()
+    {
+        self::$numeroDeContas--;
     }
 
     public function sacar(float $valorASacar): void //métodos são públicos
@@ -44,15 +50,19 @@ class Conta //nome das classes sejam substantivo
     {
         return $this->saldo;
     }
-    
-          
-    public function recuperarNomeTitular():string
+             
+    public function recuperaNomeTitular():string
     {
-        return $this->nomeTitular;
+        return $this->titular->recuperaNome();
     }
 
-    public function recuperarCpfTitular():string
+    public function recuperaCpfTitular():string
     {
-        return $this->cpfTitular;
+        return $this->titular->recuperaCpf();
+    }
+
+    public static function recuperaNumeroDeContas():int
+    {
+        return self::$numeroDeContas;
     }
 }
