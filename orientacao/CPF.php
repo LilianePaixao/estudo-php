@@ -17,7 +17,7 @@ class cpf
         }
         $this->numero = $numero;
     }
-    public function getCpf():string
+    public function recuperaCpf():string
     {
         return $this->cpf;
     }
