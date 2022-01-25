@@ -1,4 +1,7 @@
 <?php
+
+namespace Alura\Banco\Modelo\Conta;
+
 class Conta //nome das classes sejam substantivo
 {
     private string $titular; //propriedades são  privadas

@@ -1,9 +1,9 @@
 <?php
 
-require_once './Conta.php';
-require_once './Endereco.php';
-require_once './Titular.php';
-require_once './CPF.php';
+require_once '/Modelo/Conta/Conta.php';
+require_once '/Modelo/Endereco.php';
+require_once '/Modelo/Conta/Titular.php';
+require_once '/Modelo/CPF.php';
 
 
 $endereco = new Endereco('Petropolis', 'um bairro', 'minha rua','71B');
