@@ -2,28 +2,37 @@
 
 namespace Alura;
 
+
 require 'autoload.php';
 
-
-$correntistas_e_compras = [
+$correntistas = [
     "Giovanni",
     "João",
-    12, 
     "Maria",
-    25,
     "Luis",
     "Luisa",
-    "12",
+    "Rafael",
 ];
 
-echo "<pre>";
+$saldos = [
+    2500,
+    3000,
+    4400,
+    1000,
+    8700,
+    9000
+];
 
-var_dump($correntistas_e_compras);
+$relacionados = array_combine($correntistas, $saldos);
 
-ArrayUtils:: remover(12, $correntistas_e_compras);
+if(array_key_exists("João, $relacionados")){
+    echo " O saldo do João é: {$relacionados["João"]}";
+} else {
+    echo "Não foi encontrado";
+};
 
-var_dump($correntistas_e_compras);
+$maiores = ArrayUtils::econtrarPessoasComSaldoMaior(3000,$relacionados);
 
+echo"<pre>";
+    var_dump($maiores);
 echo "</pre>";
-
-
