@@ -1,6 +1,9 @@
 <?php
 
-require_once 'autoload.php';
+spl_autoload_register(function(string $nomeCompletoDaClasse){
+    echo $nomeCompletoDaClasse;
+    exit();
+});
 
 use Alura\Banco\Modelo\Endereco;
 use Alura\Banco\Modelo\Conta\Titular;
