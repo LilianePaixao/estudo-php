@@ -1,10 +1,13 @@
 <?php
 
-require_once '/Modelo/Conta/Conta.php';
-require_once '/Modelo/Endereco.php';
-require_once '/Modelo/Conta/Titular.php';
-require_once '/Modelo/CPF.php';
+spl_autoload_register(function(string $nomeCompletoDaClasse){
 
+});
+
+use Alura\Banco\Modelo\Endereco;
+use Alura\Banco\Modelo\Conta\Titular;
+use Alura\Banco\Modelo\Conta\Conta;
+use Alura\Banco\Modelo\CPF;
 
 $endereco = new Endereco('Petropolis', 'um bairro', 'minha rua','71B');
 $vinicius = new Titular(new CPF('123.456.789-10'), 'Vinícius Dias', $endereco);
