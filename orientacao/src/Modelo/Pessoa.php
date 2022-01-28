@@ -9,7 +9,7 @@ class Pessoa
 
     public function __construct(string $nome, CPF $cpf)
     {
-        $this->nome->validaNomeTitular($nome);
+        $this->validaNomeTitular($nome);
         $this->nome = $nome;
         $this->cpf = $cpf;
     }

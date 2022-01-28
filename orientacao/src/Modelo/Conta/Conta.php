@@ -2,18 +2,19 @@
 
 namespace Alura\Banco\Modelo\Conta;
 
-class Conta //nome das classes sejam substantivo
+abstract class Conta //nome das classes sejam substantivo
 {
     private string $titular; //propriedades são  privadas
     private float $saldo;
     private static $numeroDeContas = 0;
+    
     
     public function __construct(Titular $titular) // inicializa a instância: Conta
     {
         $this->titular = $titular;
         $this->saldo = 0;
         
-        self::$numeroDeContas ++;
+        self::$numeroDeContas++;
     }
 
     public function __destruct()
@@ -21,13 +22,15 @@ class Conta //nome das classes sejam substantivo
         self::$numeroDeContas--;
     }
 
-    public function sacar(float $valorASacar): void //métodos são públicos
+    public function saca(float $valorASacar): void //métodos são públicos
     {
-        if ($valorASacar > $this->saldo) { //nome dos métodos sejam verbos
+        $tarifaSaque = $valorASacar * $this->percentualTarifa();
+        $valorSaque = $valorASacar + $tarifaSaque;
+        if ($valorSaque > $this->saldo) { //nome dos métodos sejam verbos
             echo "saldo indisponível";
             return;
         }
-        $this->saldo -= $valorASacar;
+        $this->saldo -= $valorSaque;
         
     }
     public function depositar(float $valorADepositar): void
@@ -39,17 +42,7 @@ class Conta //nome das classes sejam substantivo
         $this->saldo += $valorADepositar;
         
     }
-    public function transferir(float $valorATransferir,Conta $contaDestino): void
-    {
-        if ($valorATransferir > $this->saldo) {
-            echo "Saldo indisponível";
-            return;
-        }
-        $this->sacar ($valorATransferir);
-        $contaDestino->depositar($valorATransferir);
-    
-    }
-    public function recuperarSaldo():float
+        public function recuperarSaldo():float
     {
         return $this->saldo;
     }
@@ -68,4 +61,6 @@ class Conta //nome das classes sejam substantivo
     {
         return self::$numeroDeContas;
     }
+    abstract protected function percentualTarifa(): float;
+    
 }
