@@ -1,13 +1,16 @@
 <?php
 
 namespace Alura\Banco\Modelo\Conta;
+/**
+ * A classe Conta: o quê a classe conta faz
+ */
 
 abstract class Conta //nome das classes sejam substantivo
 {
     private string $titular; //propriedades são  privadas
     private float $saldo;
     private static $numeroDeContas = 0;
-    
+        
     
     public function __construct(Titular $titular) // inicializa a instância: Conta
     {
