@@ -12,10 +12,5 @@
     for ($i = 1; $i < count($month); $i++){
         echo "O número " . $i . " corresponde ao mês de " . $month[$i] .".". PHP_EOL;
     }
-    // try to do
-    // function month($month[])
-    // {
-    //     echo $month;
-    // }
 ?>
 
