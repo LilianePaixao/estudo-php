@@ -24,11 +24,29 @@
 
 //echo $ip;
 
-$ip = $_SERVER["REMOTE_ADDR"];
+//$ip = $_SERVER["REMOTE_ADDR"];
 
-echo $ip;
+//echo $ip;
 
+$nome = "Liliane";
 
+function apresentaNome(){
+	
+	global $nome;
+	echo $nome;
+	echo " ";
+}
+
+function apresentaSobrenome(){
+	
+	$sobre = "Paixão";
+
+	echo $sobre . " agora no apresentaSobrenome";
+
+}
+
+apresentaNome();
+apresentaSobrenome();
 
 
 
